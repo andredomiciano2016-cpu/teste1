@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Valdecir Ferreira — Cirurgião-Dentista | Manhuaçu, MG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F4EF;
+    --warm-white: #FDFBF8;
+    --taupe: #C4B5A0;
+    --dark-taupe: #8A7866;
+    --charcoal: #2A2420;
+    --soft-black: #1A1512;
+    --gold: #C9A96E;
+    --gold-light: #E8D5B0;
+    --green-wa: #25D366;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    background: rgba(253,251,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(196,181,160,0.2);
+    transition: padding 0.3s;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--soft-black);
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    font-weight: 300;
+    font-style: italic;
+    color: var(--dark-taupe);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; }
+
+  .nav-cta {
+    background: var(--charcoal);
+    color: var(--warm-white) !important;
+    opacity: 1 !important;
+    padding: 10px 24px;
+    border-radius: 2px;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--soft-black) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 64px 80px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dark-taupe);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero-badge::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--soft-black);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.4s;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--dark-taupe);
+    font-weight: 300;
+  }
+
+  .hero-title strong {
+    font-weight: 600;
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--charcoal);
+    opacity: 0.7;
+    max-width: 400px;
+    margin-bottom: 48px;
+    animation: fadeUp 1s ease forwards 0.6s;
+    opacity: 0;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 0.8s;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--charcoal);
+    color: var(--warm-white);
+    text-decoration: none;
+    padding: 16px 32px;
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.25s, transform 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--soft-black);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--charcoal);
+    text-decoration: none;
+    padding: 16px 32px;
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid rgba(42,36,32,0.25);
+    border-radius: 2px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--charcoal);
+    background: rgba(42,36,32,0.04);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 72px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(196,181,160,0.3);
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 1s;
+  }
+
+  .stat-item {}
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--soft-black);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dark-taupe);
+    margin-top: 4px;
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards 0.5s;
+  }
+
+  .hero-image-container {
+    position: absolute;
+    inset: 0;
+    background: var(--cream);
+  }
+
+  .hero-doctor-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(15%) contrast(1.05);
+  }
+
+  .hero-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--warm-white) 0%, transparent 15%);
+  }
+
+  .hero-image-card {
+    position: absolute;
+    bottom: 60px;
+    right: 40px;
+    background: rgba(253,251,248,0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(196,181,160,0.3);
+    padding: 20px 24px;
+    border-radius: 4px;
+    max-width: 220px;
+    box-shadow: 0 16px 48px rgba(26,21,18,0.12);
+  }
+
+  .card-stars {
+    color: var(--gold);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  .card-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--charcoal);
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .card-author {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dark-taupe);
+  }
+
+  /* ── LOCATION STRIP ── */
+  .location-strip {
+    background: var(--charcoal);
+    color: rgba(253,251,248,0.7);
+    padding: 14px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .location-strip span { display: flex; align-items: center; gap: 8px; }
+
+  /* ── SERVICES ── */
+  .services {
+    padding: 120px 80px;
+    background: var(--warm-white);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 72px;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 3.5vw, 3.8rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--soft-black);
+  }
+
+  .section-title em { font-style: italic; color: var(--dark-taupe); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(196,181,160,0.2);
+  }
+
+  .service-card {
+    background: var(--warm-white);
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.35s;
+    cursor: pointer;
+  }
+
+  .service-card:hover { background: var(--cream); }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 2px;
+    width: 0;
+    background: var(--gold);
+    transition: width 0.4s ease;
+  }
+
+  .service-card:hover::after { width: 100%; }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--soft-black);
+    margin-bottom: 12px;
+  }
+
+  .service-desc {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--charcoal);
+    opacity: 0.65;
+    margin-bottom: 28px;
+  }
+
+  .service-link {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dark-taupe);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.2s;
+  }
+
+  .service-link:hover { gap: 14px; }
+
+  .service-number {
+    position: absolute;
+    top: 24px; right: 32px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: rgba(196,181,160,0.15);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  /* ── ABOUT ── */
+  .about {
+    padding: 120px 80px;
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .about-image-wrapper {
+    position: relative;
+  }
+
+  .about-img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    filter: grayscale(10%) contrast(1.05);
+    border-radius: 2px;
+  }
+
+  .about-clinic-img {
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 55%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border: 6px solid var(--cream);
+    border-radius: 2px;
+    box-shadow: 0 20px 60px rgba(26,21,18,0.15);
+  }
+
+  .about-content {}
+
+  .about-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--soft-black);
+    margin-bottom: 32px;
+    border-left: 2px solid var(--gold);
+    padding-left: 24px;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+    line-height: 1.85;
+    color: var(--charcoal);
+    opacity: 0.75;
+    margin-bottom: 20px;
+  }
+
+  .about-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 36px 0;
+    padding: 32px;
+    background: var(--warm-white);
+    border-radius: 2px;
+  }
+
+  .credential-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.82rem;
+    color: var(--charcoal);
+  }
+
+  .credential-item::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  /* ── SOCIAL PROOF ── */
+  .testimonials {
+    padding: 120px 80px;
+    background: var(--soft-black);
+    color: var(--warm-white);
+  }
+
+  .testimonials .section-title { color: var(--warm-white); }
+  .testimonials .section-label { color: var(--gold); }
+  .testimonials .section-label::before { background: var(--gold); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .testimonial-card {
+    background: rgba(247,244,239,0.05);
+    border: 1px solid rgba(247,244,239,0.08);
+    padding: 40px 32px;
+    border-radius: 2px;
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .testimonial-card:hover {
+    background: rgba(247,244,239,0.08);
+    border-color: rgba(201,169,110,0.3);
+  }
+
+  .t-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 20px; }
+
+  .t-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: rgba(247,244,239,0.85);
+    margin-bottom: 24px;
+  }
+
+  .t-author {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--taupe);
+  }
+
+  .t-service {
+    font-size: 0.68rem;
+    color: var(--gold);
+    margin-top: 4px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── CLINIC GALLERY ── */
+  .clinic {
+    padding: 120px 80px;
+    background: var(--warm-white);
+  }
+
+  .clinic-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 280px 280px;
+    gap: 6px;
+    margin-top: 60px;
+  }
+
+  .clinic-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.4s;
+    filter: grayscale(15%);
+  }
+
+  .clinic-img:hover { filter: grayscale(0%); }
+
+  .clinic-main { grid-row: 1 / 3; }
+
+  .clinic-feature {
+    background: var(--charcoal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 32px;
+  }
+
+  .clinic-feature-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4.5rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .clinic-feature-text {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(247,244,239,0.6);
+    margin-top: 8px;
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    padding: 100px 80px;
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .cta-content {}
+
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 3.5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--soft-black);
+    margin-bottom: 20px;
+  }
+
+  .cta-title em { font-style: italic; color: var(--dark-taupe); }
+
+  .cta-sub {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--charcoal);
+    opacity: 0.65;
+    margin-bottom: 40px;
+    max-width: 400px;
+  }
+
+  .cta-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--green-wa);
+    color: white;
+    text-decoration: none;
+    padding: 16px 32px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.25s, transform 0.2s;
+  }
+
+  .btn-whatsapp:hover { background: #20b958; transform: translateY(-2px); }
+
+  .cta-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .info-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .info-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--warm-white);
+    border: 1px solid rgba(196,181,160,0.3);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .info-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dark-taupe);
+    margin-bottom: 4px;
+  }
+
+  .info-value {
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    line-height: 1.5;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--soft-black);
+    color: rgba(247,244,239,0.5);
+    padding: 60px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+    font-size: 0.78rem;
+    line-height: 1.8;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--warm-white);
+    margin-bottom: 12px;
+  }
+
+  .footer-logo span { font-weight: 300; font-style: italic; color: var(--taupe); }
+
+  .footer-cro {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  footer h4 {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(247,244,239,0.3);
+    margin-bottom: 16px;
+  }
+
+  footer a {
+    color: rgba(247,244,239,0.5);
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s;
+  }
+
+  footer a:hover { color: var(--warm-white); }
+
+  .footer-bottom {
+    background: var(--soft-black);
+    border-top: 1px solid rgba(247,244,239,0.07);
+    padding: 20px 80px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.68rem;
+    color: rgba(247,244,239,0.25);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── WHATSAPP FLOAT ── */
+  .wa-float {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 999;
+    width: 56px;
+    height: 56px;
+    background: var(--green-wa);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: transform 0.25s, box-shadow 0.25s;
+    animation: pulse 3s ease infinite 2s;
+  }
+
+  .wa-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 32px rgba(37,211,102,0.55);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 6px 40px rgba(37,211,102,0.7); }
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 100px 24px 60px; }
+    .hero-right { height: 50vh; }
+    .hero-image-overlay { background: linear-gradient(to bottom, var(--warm-white) 0%, transparent 30%); }
+    .hero-stats { gap: 32px; }
+    .hero-image-card { display: none; }
+
+    .services { padding: 80px 24px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+    .about { grid-template-columns: 1fr; padding: 80px 24px; gap: 60px; }
+    .about-clinic-img { bottom: -20px; right: -10px; }
+
+    .testimonials { padding: 80px 24px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+
+    .clinic { padding: 80px 24px; }
+    .clinic-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .clinic-main { grid-row: auto; grid-column: 1 / -1; height: 240px; }
+
+    .cta-section { grid-template-columns: 1fr; padding: 80px 24px; gap: 48px; }
+
+    footer { grid-template-columns: 1fr; padding: 60px 24px; }
+    .footer-bottom { padding: 20px 24px; flex-direction: column; gap: 8px; }
+
+    .location-strip { padding: 14px 24px; font-size: 0.65rem; flex-direction: column; gap: 6px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Dr. Valdecir <span>Ferreira</span></a>
+  <ul class="nav-links">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="agendamento-odonto.html" class="nav-cta">Agendamento</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">Manhuaçu, MG — CRO/MG 22.503</div>
+    <h1 class="hero-title">
+      O sorriso que<br>
+      <em>você merece</em><br>
+      <strong>começa aqui.</strong>
+    </h1>
+    <p class="hero-sub">
+      Clareamento, estética e implantodontia com atenção individualizada. 
+      Mais de 28 anos cuidando do sorriso de Manhuaçu e região.
+    </p>
+    <div class="hero-actions">
+      <a href="agendamento-odonto.html" class="btn-primary">
+        📅 Agendamento
+      </a>
+      <a href="#servicos" class="btn-secondary">Ver serviços →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">28+</div>
+        <div class="stat-label">Anos de experiência</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">5★</div>
+        <div class="stat-label">Avaliação Google</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">UFJF</div>
+        <div class="stat-label">Graduação Federal</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-image-container">
+      <!-- Doctor photo from Instagram screenshot -->
+      <img
+        src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80"
+        alt="Dr. Valdecir Ferreira — Cirurgião-Dentista em Manhuaçu"
+        class="hero-doctor-img"
+        onerror="this.style.background='#C4B5A0'"
+      >
+    </div>
+    <div class="hero-image-overlay"></div>
+    <div class="hero-image-card">
+      <div class="card-stars">★★★★★</div>
+      <p class="card-text">"Fiz meu clareamento e ficou incrível. Me sinto muito mais confiante!"</p>
+      <div class="card-author">Paciente — Manhuaçu</div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION STRIP -->
+<div class="location-strip">
+  <span>📍 Sala 301-A, Edifício Breder — Manhuaçu, MG 36900-085</span>
+  <span>⏰ Seg–Sex: 8h às 18h &nbsp;|&nbsp; Sáb: 8h às 12h</span>
+  <span>📞 (33) 98414-3239</span>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="servicos">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Especialidades</div>
+      <h2 class="section-title">O que fazemos<br>pelo seu <em>sorriso</em></h2>
+    </div>
+  </div>
+
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <span class="service-number">01</span>
+      <span class="service-icon">✦</span>
+      <h3 class="service-name">Clareamento Dental</h3>
+      <p class="service-desc">Dentes até 8 tons mais brancos com técnicas modernas e seguras. Resultado visível desde a primeira sessão, com proteção total do esmalte.</p>
+      <a href="agendamento-odonto.html" class="service-link">Quero clarear meus dentes →</a>
+    </div>
+
+    <div class="service-card">
+      <span class="service-number">02</span>
+      <span class="service-icon">✦</span>
+      <h3 class="service-name">Limpeza Profissional</h3>
+      <p class="service-desc">Remoção completa de tártaro, manchas e placa bacteriana. O ponto de partida para um sorriso saudável e branco — ideal a cada 6 meses.</p>
+      <a href="agendamento-odonto.html" class="service-link">Agendar minha limpeza →</a>
+    </div>
+
+    <div class="service-card">
+      <span class="service-number">03</span>
+      <span class="service-icon">✦</span>
+      <h3 class="service-name">Estética do Sorriso</h3>
+      <p class="service-desc">Facetas, remoção de manchas e harmonização do sorriso. Transformamos a aparência dos seus dentes com resultados naturais e duradouros.</p>
+      <a href="agendamento-odonto.html" class="service-link">Avaliar meu sorriso →</a>
+    </div>
+
+    <div class="service-card">
+      <span class="service-number">04</span>
+      <span class="service-icon">✦</span>
+      <h3 class="service-name">Implantodontia</h3>
+      <p class="service-desc">Reposição de dentes perdidos com implantes de titânio de alta qualidade. Resultado estético, funcional e permanente.</p>
+      <a href="agendamento-odonto.html" class="service-link">Saber mais sobre implantes →</a>
+    </div>
+
+    <div class="service-card">
+      <span class="service-number">05</span>
+      <span class="service-icon">✦</span>
+      <h3 class="service-name">Reabilitação Oral</h3>
+      <p class="service-desc">Devolvemos a função e a estética ao sorriso completo, com tratamentos personalizados e planejamento detalhado para cada paciente.</p>
+      <a href="agendamento-odonto.html" class="service-link">Consultar reabilitação →</a>
+    </div>
+
+    <div class="service-card">
+      <span class="service-number">06</span>
+      <span class="service-icon">✦</span>
+      <h3 class="service-name">Clínica Geral</h3>
+      <p class="service-desc">Atendimento completo para toda a família: restaurações, extrações, tratamento de cáries e prevenção. Cuidado integral com o seu sorriso.</p>
+      <a href="agendamento-odonto.html" class="service-link">Agendar consulta →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="sobre">
+  <div class="about-image-wrapper reveal">
+    <img
+      src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80"
+      alt="Dr. Valdecir Ferreira"
+      class="about-img"
+    >
+    <img
+      src="https://images.unsplash.com/photo-1629909615957-be38d48fbbe4?w=400&q=80"
+      alt="Consultório Dr. Valdecir"
+      class="about-clinic-img"
+    >
+  </div>
+
+  <div class="about-content reveal">
+    <div class="section-label">Sobre o doutor</div>
+    <h2 class="section-title" style="margin-bottom:28px;">Dr. Valdecir<br><em>Ferreira</em></h2>
+
+    <blockquote class="about-quote">
+      "Meu objetivo é devolver confiança através de um sorriso que você tenha orgulho de mostrar."
+    </blockquote>
+
+    <p class="about-text">
+      Graduado pela Universidade Federal de Juiz de Fora (UFJF) em 1997, o Dr. Valdecir Ferreira acumula mais de 28 anos de experiência dedicados à saúde bucal e à estética dental em Manhuaçu, MG.
+    </p>
+    <p class="about-text">
+      Especializado em Implantodontia e Estética, atua também como clínico geral com foco no bem-estar completo dos seus pacientes — desde consultas de rotina até reabilitações complexas.
+    </p>
+
+    <div class="about-credentials">
+      <div class="credential-item">Cirurgião-Dentista — CRO/MG 22.503</div>
+      <div class="credential-item">Graduação em Odontologia — UFJF (1997)</div>
+      <div class="credential-item">Especialização em Implantodontia</div>
+      <div class="credential-item">Especialização em Estética e Reabilitação Oral</div>
+      <div class="credential-item">Membro iDent desde Abril de 2016</div>
+    </div>
+
+    <a href="agendamento-odonto.html" class="btn-primary">
+      📅 Agendamento
+    </a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="depoimentos">
+  <div>
+    <div class="section-label">Depoimentos</div>
+    <h2 class="section-title">O que dizem<br>nossos <em>pacientes</em></h2>
+  </div>
+
+  <div class="testimonials-grid reveal">
+    <div class="testimonial-card">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"Fiz o clareamento com o Dr. Valdecir e o resultado foi surpreendente. Fiquei com os dentes muito mais brancos e o atendimento foi excelente do início ao fim."</p>
+      <div class="t-author">Maria Aparecida S.</div>
+      <div class="t-service">Clareamento Dental</div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"Profissional muito atencioso e competente. Fiz meu implante aqui e não poderia estar mais satisfeito. Recomendo de olhos fechados para todos da região."</p>
+      <div class="t-author">José Carlos M.</div>
+      <div class="t-service">Implantodontia</div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"Sempre tive medo de dentista, mas o Dr. Valdecir deixou tudo muito tranquilo. Consultório limpo, ambiente acolhedor. Já indiquei para toda minha família."</p>
+      <div class="t-author">Fernanda L.</div>
+      <div class="t-service">Clínica Geral</div>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:56px;">
+    <a href="https://share.google/JkmqSpsiUcaqmYt9b" target="_blank" class="btn-secondary" style="display:inline-flex; color:rgba(247,244,239,0.7); border-color:rgba(247,244,239,0.2);">
+      Ver todas as avaliações no Google →
+    </a>
+  </div>
+</section>
+
+<!-- CTA + CONTACT -->
+<section class="cta-section" id="contato">
+  <div class="cta-content reveal">
+    <div class="section-label">Agende agora</div>
+    <h2 class="cta-title">Pronto para<br>transformar seu<br><em>sorriso?</em></h2>
+    <p class="cta-sub">
+      Entre em contato para agendar sua consulta. Atendemos em Manhuaçu, MG com horários flexíveis.
+    </p>
+    <div class="cta-actions">
+      <a href="agendamento-odonto.html" class="btn-whatsapp">
+        📅 Agendamento
+      </a>
+      <a href="https://share.google/JkmqSpsiUcaqmYt9b" class="btn-secondary" target="_blank">
+        Ver avaliações Google
+      </a>
+    </div>
+  </div>
+
+  <div class="cta-info reveal">
+    <div class="info-item">
+      <div class="info-icon">📍</div>
+      <div>
+        <div class="info-label">Endereço</div>
+        <div class="info-value">Sala 301-A, Edifício Breder<br>Manhuaçu, MG — 36900-085</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">⏰</div>
+      <div>
+        <div class="info-label">Horários de Atendimento</div>
+        <div class="info-value">Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">📱</div>
+      <div>
+        <div class="info-label">WhatsApp / Telefone</div>
+        <div class="info-value">(33) 98414-3239</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">🦷</div>
+      <div>
+        <div class="info-label">CRO</div>
+        <div class="info-value">CRO/MG 22.503</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Dr. Valdecir <span>Ferreira</span></div>
+    <div class="footer-cro">CRO/MG 22.503</div>
+    <div>Cirurgião-Dentista especialista em Estética e Implantodontia, atendendo Manhuaçu e região desde 1997.</div>
+  </div>
+  <div>
+    <h4>Serviços</h4>
+    <a href="#">Clareamento Dental</a>
+    <a href="#">Limpeza Profissional</a>
+    <a href="#">Estética do Sorriso</a>
+    <a href="#">Implantodontia</a>
+    <a href="#">Reabilitação Oral</a>
+  </div>
+  <div>
+    <h4>Contato</h4>
+    <a href="https://wa.me/5533984143239" target="_blank">WhatsApp: (33) 98414-3239</a>
+    <a href="https://share.google/JkmqSpsiUcaqmYt9b" target="_blank">Avaliações no Google</a>
+    <br>
+    <div>Sala 301-A, Edifício Breder<br>Manhuaçu, MG — 36900-085</div>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2026 Dr. Valdecir Ferreira — Todos os direitos reservados</span>
+  <span>CRO/MG 22.503 · Manhuaçu, MG</span>
+</div>
+
+<!-- WHATSAPP FLOAT -->
+<a href="agendamento-odonto.html" class="wa-float" title="Agendamento">
+  📅
+</a>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav shrink on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.padding = window.scrollY > 40 ? '12px 48px' : '20px 48px';
+  });
+</script>
+</body>
+</html>
